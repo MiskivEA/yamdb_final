@@ -3,7 +3,7 @@ name: Django-app
 on: [push]
 
 jobs:
-  Tests_Flake8_Pytest:
+  Tests:
     runs-on: ubuntu-latest
     steps:
     - name: clone repo
@@ -31,7 +31,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: tests
+    needs: send_message_tests
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -54,7 +54,7 @@ jobs:
 
   send_message_tests:
     runs-on: ubuntu-latest
-    needs: tests
+    needs: Tests
     steps:
       - name: send message
         uses: appleboy/telegram-action@master
