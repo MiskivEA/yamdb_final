@@ -9,7 +9,7 @@ services:
       - ./.env
 
   web:
-    image: miskivea/yamdb_final:v1
+    image: miskivea/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
