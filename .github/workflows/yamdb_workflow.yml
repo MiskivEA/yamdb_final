@@ -49,12 +49,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - run: |
+          pwd
+          ls
       - name: Push to Docker Hub
         # Пуш образа в Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: api_yamdb/
-          file: Dockerfile
           push: true
           tags: miskivea/yamdb_final:latest
         
