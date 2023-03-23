@@ -3,7 +3,7 @@ name: Django-app
 on: [push]
 
 jobs:
-  tests(Flake8 and Pytest):
+  Tests_Flake8_Pytest:
     runs-on: ubuntu-latest
     steps:
     - name: clone repo
