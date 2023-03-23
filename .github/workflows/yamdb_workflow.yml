@@ -39,8 +39,9 @@ jobs:
       - name: Set up Docker Buildx
         # Вызов сборщика контейнеров docker
         uses: docker/setup-buildx-action@v1
-        context: .
-        file: api_yamdb/Dockerfile
+        with:
+          context: .
+          file: api_yamdb/Dockerfile
 
 
       - name: Login to Docker
