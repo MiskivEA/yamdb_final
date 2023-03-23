@@ -27,3 +27,10 @@ jobs:
     - name: run pytest
       run: |
         pytest
+        
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: action/checkout@v2
