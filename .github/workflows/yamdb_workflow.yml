@@ -1,6 +1,8 @@
 name: Django-app
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   Tests:
@@ -39,7 +41,8 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: |            
+          script: |
+            ls
             sudo docker-compose stop
             sudo docker-compose rm web            
             touch .env
@@ -61,7 +64,7 @@ jobs:
         with:
           to: ${{ secrets.MY_TELEGRAM_ID }}
           token: ${{ secrets.ENID_BOT_TOKEN }}
-          message: $ тесты успешно пройдены!
+          message: Тесты успешно пройдены!
 
   send_message_deploy:
     runs-on: ubuntu-latest
