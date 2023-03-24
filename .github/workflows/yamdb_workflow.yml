@@ -77,8 +77,20 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker-compose up -d
-            sudo docker-compose exec web python manage.py collectstatic --no-input
             
+
+  collect_static:
+    name: Collect_static
+    steps:
+      - name: executing remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          run: |
+            sudo docker-compose exec web python manage.py collectstatic --no-input
+  
 
   send_message_tests:
     name: Successful completion of tests
