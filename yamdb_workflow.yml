@@ -79,7 +79,7 @@ jobs:
             
 
   send_message_tests:
-    name: Send message after successful completion of tests
+    name: Successful completion of tests
     runs-on: ubuntu-latest
     needs: tests
     steps:
@@ -91,7 +91,7 @@ jobs:
           message: Тесты успешно пройдены!
 
   send_message_push:
-    name: Send message after successful push to Docker Hub
+    name: Successful push to Docker Hub
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
@@ -104,7 +104,7 @@ jobs:
 
 
   send_message_deploy:
-    name: Send message after deploy
+    name: Successful deploy
     runs-on: ubuntu-latest
     needs: deploy
     steps:
