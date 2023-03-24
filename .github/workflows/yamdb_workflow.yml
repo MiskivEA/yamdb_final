@@ -104,7 +104,7 @@ jobs:
         with:
           to: ${{ secrets.MY_TELEGRAM_ID }}
           token: ${{ secrets.ENID_BOT_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
+          message: Проект задеплоен. ${{ github.workflow }} успешно выполнен!
 
   send_message_push_to_dockerhub:
     runs-on: ubuntu-latest
@@ -116,5 +116,3 @@ jobs:
           to: ${{ secrets.MY_TELEGRAM_ID }}
           token: ${{ secrets.ENID_BOT_TOKEN }}
           message: Образ успешно загружен на докерхаб!
-
-
