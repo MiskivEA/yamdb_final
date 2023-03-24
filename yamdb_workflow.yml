@@ -80,9 +80,9 @@ jobs:
 
   send_message_tests:
     runs-on: ubuntu-latest
-    needs: build_and_push_to_docker_hub
+    needs: tests
     steps:
-      - name: Send message
+      - name: Send message after successful completion of tests
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.MY_TELEGRAM_ID }}
@@ -91,24 +91,23 @@ jobs:
 
   send_message_push:
     runs-on: ubuntu-latest
-    needs: Tests
+    needs: build_and_push_to_docker_hub
     steps:
-      - name: Send message
+      - name: Send message after successful push to Docker Hub
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.MY_TELEGRAM_ID }}
           token: ${{ secrets.ENID_BOT_TOKEN }}
-          message: Тесты успешно пройдены!
+          message: Образ загружен в облако!
 
 
   send_message_deploy:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Send message
+      - name: Send message after deploy
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.MY_TELEGRAM_ID }}
           token: ${{ secrets.ENID_BOT_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
-
+          message: Проект задеплоен. ${{ github.workflow }} успешно выполнен!
