@@ -1,5 +1,6 @@
 # yamdb_final
-yamdb_final
+
+Проект доступен по адресу http://51.250.110.96/api/v1
 
 ![](https://github.com/MiskivEA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
