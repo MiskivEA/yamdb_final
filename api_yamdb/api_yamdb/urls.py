@@ -11,5 +11,6 @@ urlpatterns = [
         TemplateView.as_view(template_name='redoc.html'),
         name='redoc'
     ),
-    path('', TemplateView.as_view(template_name='home_page.html'), name='home_page')
+    path('', TemplateView.as_view(template_name='home_page.html'),
+         name='home_page')
 ]
