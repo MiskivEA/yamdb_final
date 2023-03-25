@@ -53,9 +53,6 @@ jobs:
           tags: miskivea/yamdb_final:latest
 
   deploy:
-    on:
-      push:
-        branches: [ master ]
     name: Pull image from Docker Hub to server and run project
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
